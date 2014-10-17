@@ -6,3 +6,4 @@ description      'Installs/Configures aar'
 long_description 'Installs/Configures aar'
 version          '0.1.0'
 
+depends          'apt'
