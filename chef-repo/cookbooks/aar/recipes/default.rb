@@ -7,7 +7,14 @@
 include_recipe "apt"
 
 # The following script assumes that apache2, mysql, and unzip have been installed.
-%w{apache2 mysql-server unzip}.each do |p|
+# # apt-get the stuff we need
+#     proc = Popen([
+#         'apt-get', 'install', '-y',
+#         'libapache2-mod-wsgi',
+#         'python-pip',
+#         'python-mysqldb'], shell=False)
+#     proc.wait()
+%w{apache2 mysql-server unzip libapache2-mod-wsgi python-pip python-mysqldb }.each do |p|
   package p
 end
 
