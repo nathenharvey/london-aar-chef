@@ -7,11 +7,20 @@ describe "awesome appliance repair" do
     expect(package('apache2')).to be_installed
   end
 
-  it "mysql-server" do
+  it "has mysql-server installed" do
     expect(package('mysql-server')).to be_installed
   end
 
-  it "unzip" do
+  it "has unzip installed" do
     expect(package('unzip')).to be_installed
+  end
+
+  it "creates /var/www/AAR/awesomeapp.py" do
+    expect(file("/var/www/AAR/awesomeapp.py")).to be_a_file
+  end
+
+  it "application files are owned by www-data" do
+    expect(file("/var/www/AAR/awesomeapp.py")).to be_owned_by "www-data"
+    expect(file("/var/www/AAR/awesomeapp.py")).to be_grouped_into "www-data"
   end
 end

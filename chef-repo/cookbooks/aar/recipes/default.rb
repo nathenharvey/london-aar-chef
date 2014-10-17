@@ -16,3 +16,19 @@ end
 # 3. cd into Awesome-Appliance-Repair
 # 4. sudo mv AAR to /var/www/
 
+directory "/var/www/" do
+  recursive true
+end
+
+ark 'Awesome-Appliance-Repair' do
+  url 'https://github.com/colincam/Awesome-Appliance-Repair/archive/master.zip'
+  path "/var/tmp"
+  owner "www-data"
+  group "www-data"
+  action :put
+end
+
+execute "move AAR into place" do
+  command "mv /var/tmp/Awesome-Appliance-Repair/AAR /var/www"
+  only_if { File.directory?("/var/tmp/Awesome-Appliance-Repair/AAR") }
+end
