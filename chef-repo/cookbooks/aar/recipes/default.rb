@@ -7,3 +7,5 @@
 include_recipe "apt"
 
 package "apache2"
+
+package "mysql-server"
