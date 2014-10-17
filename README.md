@@ -12,7 +12,13 @@
 3.  Create and verify a test kitchen for the cookbook
 
 * Update the .kitchen.yml file
-* cd chef-repo/cookbooks/aar
+* `cd chef-repo/cookbooks/aar`
 * Run `kitchen create`, `kitchen converge`, and `kitchen test` to verify everything is working OK.
 
 4.  Switch to ec2 driver to account for the slow network
+
+5.  Write tests for the pre-requisite packages, make tests pass.
+
+* apache
+* mysql
+* unzip
