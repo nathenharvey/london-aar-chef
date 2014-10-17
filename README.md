@@ -8,3 +8,9 @@
 
 * `cd chef-repo/cookbooks`
 * `chef generate cookbook aar`
+
+1.  Create and verify a test kitchen for the cookbook
+
+* Update the .kitchen.yml file
+* cd chef-repo/cookbooks/aar
+* Run `kitchen create`, `kitchen converge`, and `kitchen test` to verify everything is working OK.
