@@ -10,4 +10,8 @@ describe "awesome appliance repair" do
   it "mysql-server" do
     expect(package('mysql-server')).to be_installed
   end
+
+  it "unzip" do
+    expect(package('unzip')).to be_installed
+  end
 end
