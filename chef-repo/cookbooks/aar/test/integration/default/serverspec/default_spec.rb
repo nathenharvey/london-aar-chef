@@ -9,9 +9,6 @@ describe "awesome appliance repair" do
       expect(package(p)).to be_installed
     end
   end
-end
-
-describe "foo" do
 
   it "has apache installed" do
     expect(package('apache2')).to be_installed
