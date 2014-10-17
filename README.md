@@ -22,3 +22,7 @@
 * apache
 * mysql
 * unzip
+
+#### Refactor
+
+#### Get the application source from Github
