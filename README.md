@@ -30,3 +30,5 @@
 #### Install Flask with pip
 
 #### Manage the virtual host configuration
+
+* `chef generate template cookbooks/aar aar.conf`

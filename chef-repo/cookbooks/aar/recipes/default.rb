@@ -46,6 +46,9 @@ end
 ##
 python_pip "Flask"
 
+template "/etc/apache2/sites-available/aar.conf" do
+  source "aar.conf.erb"
+end
 ## # Generate the apache config file in sites-enabled
 ##     Popen(['apachectl', 'stop'], shell=False).wait()
 ##
