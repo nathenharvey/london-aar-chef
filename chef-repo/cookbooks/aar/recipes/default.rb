@@ -46,9 +46,6 @@ end
 ##
 python_pip "Flask"
 
-template "/etc/apache2/sites-available/aar.conf" do
-  source "aar.conf.erb"
-end
 ## # Generate the apache config file in sites-enabled
 ##     Popen(['apachectl', 'stop'], shell=False).wait()
 ##
@@ -76,6 +73,14 @@ end
 ##     </VirtualHost>
 ##     """)
 ##     f.close()
+
+template "/etc/apache2/sites-available/aar.conf" do
+  source "aar.conf.erb"
+end
+
+link "/etc/apache2/sites-enabled/aar.conf" do
+  to "/etc/apache2/sites-available/aar.conf"
+end
 ##
 ## # Generate AAR_config.py with secrets
 ##     f = open('/var/www/AAR/AAR_config.py', 'w')
