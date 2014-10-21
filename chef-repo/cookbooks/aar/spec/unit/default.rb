@@ -13,4 +13,8 @@ describe 'aar::default' do
   it "installs Flask" do
     expect(chef_run).to install_python_pip("Flask")
   end
+
+  it "creates a virtual host file" do
+    expect(chef_run).to render_file("/etc/apache2/sites-available/aar.conf")
+  end
 end
