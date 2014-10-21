@@ -34,4 +34,8 @@ describe "awesome appliance repair" do
   it "has a Flask installed" do
     expect(command("pip freeze | grep Flask").exit_status).to eq 0
   end
+
+  it "has a virtual host configured for the application" do
+    expect(file("/etc/apache2/sites-available/aar.conf")).to be_file
+  end
 end
