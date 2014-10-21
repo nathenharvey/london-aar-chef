@@ -26,3 +26,7 @@
 #### Refactor
 
 #### Get the application source from Github
+
+#### Install Flask with pip
+
+#### Manage the virtual host configuration
