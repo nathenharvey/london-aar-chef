@@ -30,4 +30,8 @@ describe "awesome appliance repair" do
     expect(file("/var/www/AAR/awesomeapp.py")).to be_owned_by "www-data"
     expect(file("/var/www/AAR/awesomeapp.py")).to be_grouped_into "www-data"
   end
+
+  it "has a Flask installed" do
+    expect(command("pip freeze | grep Flask").exit_status).to eq 0
+  end
 end
