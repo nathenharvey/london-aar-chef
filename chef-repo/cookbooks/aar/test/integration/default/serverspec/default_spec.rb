@@ -37,5 +37,6 @@ describe "awesome appliance repair" do
 
   it "has a virtual host configured for the application" do
     expect(file("/etc/apache2/sites-available/aar.conf")).to be_file
+    expect(file("/etc/apache2/sites-available/aar.conf").content).should match /VirtualHost/
   end
 end

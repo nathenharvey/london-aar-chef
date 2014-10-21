@@ -15,6 +15,6 @@ describe 'aar::default' do
   end
 
   it "creates a virtual host file" do
-    expect(chef_run).to render_file("/etc/apache2/sites-available/aar.conf")
+    expect(chef_run).to render_file("/etc/apache2/sites-available/aar.conf").with_content("VirtualHost")
   end
 end
