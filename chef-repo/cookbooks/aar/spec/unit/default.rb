@@ -9,4 +9,8 @@ describe 'aar::default' do
       expect(chef_run).to install_package(p)
     end
   end
+
+  it "installs Flask" do
+    expect(chef_run).to install_python_pip("Flask")
+  end
 end
