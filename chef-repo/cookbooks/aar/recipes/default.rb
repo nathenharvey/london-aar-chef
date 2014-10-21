@@ -44,6 +44,8 @@ end
 ## # pip install flask
 ##     Popen(['pip', 'install', 'flask'], shell=False).wait()
 ##
+python_pip "Flask"
+
 ## # Generate the apache config file in sites-enabled
 ##     Popen(['apachectl', 'stop'], shell=False).wait()
 ##
