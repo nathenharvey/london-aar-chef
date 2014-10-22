@@ -112,6 +112,21 @@ template "/var/www/AAR/AAR_config.py" do
   )
 end
 
+service "mysql" do
+  action [:start, :enable]
+end
+
+include_recipe "database::mysql"
+
+mysql_database "AARdb" do
+  connection(
+    :host => "localhost",
+    :username => "root",
+    :password => ""
+  )
+  action :create
+end
+
 ##
 ## # Create DB, user, and permissions
 ##     import MySQLdb

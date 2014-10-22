@@ -46,4 +46,11 @@ describe "awesome appliance repair" do
     expect(file("/var/www/AAR/AAR_config.py").content).to match /SECRET_KEY/
     expect(file("/var/www/AAR/AAR_config.py").content).to match /DB_VALUES/
   end
+
+  it "is running mysql" do
+    expect(service("mysql")).to be_running
+  end
+  it "is enables mysql" do
+    expect(service("mysql")).to be_enabled
+  end
 end

@@ -23,4 +23,16 @@ describe 'aar::default' do
     expect(chef_run).to render_file("/var/www/AAR/AAR_config.py").with_content("SECRET_KEY")
     expect(chef_run).to render_file("/var/www/AAR/AAR_config.py").with_content("DB_VALUES")
   end
+
+  it "runs the mysql service" do
+    expect(chef_run).to start_service('mysql')
+  end
+
+  it "enables the mysql service" do
+    expect(chef_run).to enable_service('mysql')
+  end
+
+  it "creates the AARdb database" do
+    expect(chef_run).to create_mysql_database("AARdb")
+  end
 end

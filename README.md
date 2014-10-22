@@ -36,3 +36,5 @@
 #### Create AAR_config.py file
 
 * `chef generate template cookbooks/aar AAR_config.py`
+
+#### Create Database
