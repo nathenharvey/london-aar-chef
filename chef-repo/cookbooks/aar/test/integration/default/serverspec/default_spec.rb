@@ -39,4 +39,11 @@ describe "awesome appliance repair" do
     expect(file("/etc/apache2/sites-enabled/aar.conf")).to be_file
     expect(file("/etc/apache2/sites-enabled/aar.conf").content).to match /VirtualHost/
   end
+
+  it "creates a configuration file for the application" do
+    expect(file("/var/www/AAR/AAR_config.py")).to be_file
+    expect(file("/var/www/AAR/AAR_config.py").content).to match /CONNECTION_ARGS/
+    expect(file("/var/www/AAR/AAR_config.py").content).to match /SECRET_KEY/
+    expect(file("/var/www/AAR/AAR_config.py").content).to match /DB_VALUES/
+  end
 end

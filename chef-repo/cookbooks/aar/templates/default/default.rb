@@ -92,13 +92,6 @@ secretkey = rand(36**8).to_s(36)
 
 template "/var/www/AAR/AAR_config.py" do
   source "AAR_config.py.erb"
-  owner "root"
-  group "root"
-  mode "0644"
-  variables(
-    :appdbpw => appdbpw,
-    :secretkey => secretkey
-  )
 end
 
 ##
