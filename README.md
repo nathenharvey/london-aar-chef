@@ -38,3 +38,7 @@
 * `chef generate template cookbooks/aar AAR_config.py`
 
 #### Create Database
+
+#### Seed the database with initial values
+
+* `chef generate template cookbooks/aar make_AARdb.sql`
