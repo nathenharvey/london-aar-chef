@@ -145,6 +145,10 @@ end
 ##     db = MySQLdb.connect(host='localhost', user='root', passwd=root_dbpswd)
 ##     sql_script = open('make_AARdb.sql', 'r').read()
 ##
+template "#{Chef::Config[:file_cache_path]}/make_AARdb.sql" do
+  source "make_AARdb.sql.erb"
+end
+
 ##     cur = db.cursor()
 ##     cur.execute(sql_script)
 ##     cur.close()
