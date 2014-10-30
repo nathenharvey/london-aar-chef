@@ -40,6 +40,9 @@ execute "move AAR into place" do
   only_if { File.directory?("/var/tmp/Awesome-Appliance-Repair/AAR") }
 end
 
+service "apache2" do
+  action [:start, :enable]
+end
 
 ## # pip install flask
 ##     Popen(['pip', 'install', 'flask'], shell=False).wait()
