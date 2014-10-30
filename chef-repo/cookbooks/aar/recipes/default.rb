@@ -164,3 +164,11 @@ end
 ##     cur.execute("GRANT CREATE,INSERT,DELETE,UPDATE,SELECT on AARdb.* to aarapp@localhost")
 ##     cur.close()
 ##     db.close()
+
+mysql_database_user "aarapp" do
+  connection mysql_connection_info
+  password appdbpw
+  database_name "AARdb"
+  privileges [:create, :insert, :delete, :update, :select]
+  action [:create, :grant]
+end
