@@ -35,4 +35,12 @@ describe 'aar::default' do
   it "creates the AARdb database" do
     expect(chef_run).to create_mysql_database("AARdb")
   end
+
+  it "starts apahce" do
+    expect(chef_run).to start_service("apache2")
+  end
+
+  it "enables apahce" do
+    expect(chef_run).to enable_service("apache2")
+  end
 end
