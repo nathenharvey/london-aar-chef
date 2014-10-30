@@ -149,6 +149,11 @@ template "#{Chef::Config[:file_cache_path]}/make_AARdb.sql" do
   source "make_AARdb.sql.erb"
 end
 
+execute "seed the database" do
+  cwd Chef::Config[:file_cache_path]
+  command "mysql -u root < make_AARdb.sql"
+  not_if "mysql -u root -e \"select table_name from information_schema.tables where table_schema = 'AARdb'\" | grep customer"
+end
 ##     cur = db.cursor()
 ##     cur.execute(sql_script)
 ##     cur.close()
