@@ -129,12 +129,13 @@ end
 
 include_recipe "database::mysql"
 
+mysql_connection_info = {
+  :host => "localhost",
+  :username => "root",
+  :password => ""
+}
 mysql_database "AARdb" do
-  connection(
-    :host => "localhost",
-    :username => "root",
-    :password => ""
-  )
+  connection mysql_connection_info
   action :create
 end
 
