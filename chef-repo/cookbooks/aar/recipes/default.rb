@@ -83,7 +83,15 @@ end
 
 link "/etc/apache2/sites-enabled/aar.conf" do
   to "/etc/apache2/sites-available/aar.conf"
+  notifies :restart, "service[apache2]"
 end
+
+link "/etc/apache2/sites-enabled/000-default" do
+  to "/etc/apache2/sites-available/default"
+  action :delete
+  notifies :restart, "service[apache2]"
+end
+
 ##
 ## # Generate AAR_config.py with secrets
 ##     f = open('/var/www/AAR/AAR_config.py', 'w')
