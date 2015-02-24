@@ -172,3 +172,16 @@ mysql_database_user "aarapp" do
   privileges [:create, :insert, :delete, :update, :select]
   action [:create, :grant]
 end
+
+
+# Deploy HTML files
+%W{
+  login.html
+  repairRequest.html
+}.each do |html_file|
+  template "/var/www/AAR/templates/#{html_file}" do
+    owner "www-data"
+    group "www-data"
+    mode "0644"
+  end
+end
