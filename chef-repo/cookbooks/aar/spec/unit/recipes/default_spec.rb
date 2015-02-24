@@ -45,4 +45,14 @@ describe 'aar::default' do
   it "enables apahce" do
     expect(chef_run).to enable_service("apache2")
   end
+
+  it "deploy login.html page with right version" do
+    expect(chef_run).to render_file("/var/www/AAR/templates/login.html").with_content("v.0.1.0")
+  end
+
+  it "deploy repairRequest.html without a Promotion" do
+    expect(chef_run).to render_file("/var/www/AAR/templates/repairRequest.html")
+    expect(chef_run).to render_file("/var/www/AAR/templates/repairRequest.html").with_content("Request for Repair")
+    expect(chef_run).to_not render_file("/var/www/AAR/templates/repairRequest.html").with_content("Promotion of the day")
+  end
 end
