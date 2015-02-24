@@ -86,8 +86,8 @@ link "/etc/apache2/sites-enabled/aar.conf" do
   notifies :restart, "service[apache2]"
 end
 
-link "/etc/apache2/sites-enabled/000-default" do
-  to "/etc/apache2/sites-available/default"
+link "/etc/apache2/sites-enabled/000-default.conf" do
+  to "/etc/apache2/sites-available/000-default.conf"
   action :delete
   notifies :restart, "service[apache2]"
 end
