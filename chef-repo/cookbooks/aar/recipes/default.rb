@@ -127,7 +127,7 @@ service "mysql" do
   action [:start, :enable]
 end
 
-include_recipe "database::mysql"
+mysql2_chef_gem 'default'
 
 mysql_connection_info = {
   :host => "localhost",
