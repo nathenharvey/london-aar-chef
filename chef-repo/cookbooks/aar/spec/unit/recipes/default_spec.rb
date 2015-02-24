@@ -1,8 +1,10 @@
-require 'chefspec'
-require 'chefspec/berkshelf'
+require 'spec_helper'
 
 describe 'aar::default' do
-  let(:chef_run) { ChefSpec::Runner.new.converge(described_recipe)  }
+  before do
+    stub_command("mysql -u root -e \"select table_name from information_schema.tables where table_schema = 'AARdb'\" | grep customer").and_return(true)
+  end
+  let(:chef_run) { ChefSpec::SoloRunner.new.converge(described_recipe)  }
 
   it "installs the pre-requisite packages" do
     %w{apache2 mysql-server unzip libapache2-mod-wsgi python-pip python-mysqldb }.each do |p|

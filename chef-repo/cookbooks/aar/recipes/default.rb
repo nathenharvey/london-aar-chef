@@ -86,8 +86,8 @@ link "/etc/apache2/sites-enabled/aar.conf" do
   notifies :restart, "service[apache2]"
 end
 
-link "/etc/apache2/sites-enabled/000-default" do
-  to "/etc/apache2/sites-available/default"
+link "/etc/apache2/sites-enabled/000-default.conf" do
+  to "/etc/apache2/sites-available/000-default.conf"
   action :delete
   notifies :restart, "service[apache2]"
 end
@@ -98,8 +98,8 @@ end
 ##     appdbpw = binascii.b2a_base64(os.urandom(6)).strip('\n')
 ##     secretkey = binascii.b2a_base64(os.urandom(12)).strip('\n')
 
-appdbpw = rand(36**8).to_s(36)
-secretkey = rand(36**8).to_s(36)
+appdbpw = "my_password"
+secretkey = "my_secretkey"
 
 ##
 ##     conn_args_string = """CONNECTION_ARGS = {"host":"localhost", "user":"aarapp", "passwd":"%s", "db":"AARdb"}\n\n""" % appdbpw
